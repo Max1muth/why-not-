@@ -1,0 +1,51 @@
+import math
+import random
+import turtle
+from turtle import *
+hideturtle()
+# colors = ['black', 'midnight blue', 'slate gray', 'alice blue', 'dim gray', 'dark green', 'dark red',
+#           'white smoke', 'goldenrod', 'saddle brown']
+colors = ['WhiteSmoke', 'LightGray', 'DarkGray', 'DimGray', 'LightSlateGray', 'SlateGray', 'AliceBlue',
+          'LightSteelBlue', 'CornflowerBlue', 'RoyalBlue', 'MediumBlue', 'DarkBlue', 'MidnightBlue', 'LightBlue',
+          'DeepSkyBlue', 'DodgerBlue', 'PowderBlue', 'SkyBlue', 'LightSkyBlue', 'SteelBlue', 'LightCyan',
+          'LightSeaGreen', 'CadetBlue', 'DarkCyan', 'DarkSlateGray', 'MintCream', 'DarkSeaGreen', 'MediumSeaGreen',
+          'SeaGreen', 'PaleGreen', 'LightGreen', 'SpringGreen', 'LimeGreen', 'ForestGreen', 'DarkGreen', 'GreenYellow',
+          'LawnGreen', 'YellowGreen', 'OliveDrab', 'DarkKhaki', 'DarkOliveGreen', 'LightYellow', 'LemonChiffon',
+          'SaddleBrown', 'FloralWhite', 'OldLace', 'NavajoWhite', 'SandyBrown', 'DarkOrange', 'DarkRed', 'AntiqueWhite',
+          'PapayaWhip', 'PeachPuff', 'LightSalmon', 'OrangeRed', 'DarkSalmon', 'LightCoral',
+          'IndianRed', 'RosyBrown', 'MistyRose', 'LightPink', 'HotPink', 'DeepPink', 'LavenderBlush', 'PaleVioletRed',
+          'VioletRed', 'MediumVioletRed', 'DarkMagenta', 'MediumOrchid', 'DarkOrchid', 'DarkViolet', 'BlueViolet',
+          'MediumPurple', 'GhostWhite', 'LightSlateBlue', 'MediumSlateBlue', 'SlateBlue',
+          'DarkSlateBlue']
+# цвета были спарсены, но парсились так долго, что быстрее было бы руками набрать, но главное оно работает
+left(90)
+a = len(colors)  # кол-во объектов в листе цветов
+i = 1  # переменная для цветов
+x = 1  # коэффициент размера
+turtle.speed(50)
+bgcolor('gray')  # цвет фона
+print(a)
+for i in range(1, 78):  # цикл
+    begin_fill()
+    pendown()
+    forward(x*70)
+    right(180-math.degrees(math.atan(2/5.5)))
+    forward(x*28*math.sqrt(math.pow(2, 2)+math.pow(5.5, 2)))
+    left(180-2*math.degrees(math.atan(2/5.5)))
+    forward(x*28*math.sqrt(math.pow(2, 2)+math.pow(5.5, 2)))
+    right(180-math.degrees(math.atan(2/5.5)))
+    forward(x*70)
+    right(180-math.degrees(math.atan(2/3)))
+    forward(x*28*math.sqrt(13))
+    left(180-2*math.degrees(math.atan(2/3)))
+    forward(x*28*math.sqrt(13))
+    penup()
+    end_fill()
+    left(math.degrees(math.atan(2/3))+180)
+
+    c = random.randrange(-500, 500)  # рандомная цифра для Ох
+    y = random.randrange(-300, 300)  # рандомная цифра для Оу
+    turtle.setposition(c, y)  # координаты черепахи(телепорт)
+    turtle.color(colors[i])  # цвета, то есть от i берется остаток от a => цвета в список добавляются без проблем
+
+done()
